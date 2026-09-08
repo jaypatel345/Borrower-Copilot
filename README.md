@@ -12,10 +12,19 @@ questions and get four things you can act on before you walk into a lender:
 
 Plus a one-screen **Negotiation Card** to hold up in a branch.
 
-**Live demo:** https://borrower-copilot-one.vercel.app/
-
 No login, no backend, no documents. Every number is computed in the browser and
 every number has a one-sentence "why".
+
+---
+
+## Deliverables
+
+The four deliverables, at the root:
+
+1. **The working app** — [live demo](https://borrower-copilot-one.vercel.app/), or run locally (see below). Also `src/`.
+2. **[RULES.md](./RULES.md)** — every threshold, band, fee, formula and assumption in a table: what · value · why · source or "my judgement".
+3. **[RUNTHROUGHS.md](./RUNTHROUGHS.md)** — Priya, Ravi and Anita: the questions asked, the four outputs, and the Negotiation Card for each (stated vs assumed inputs marked).
+4. **5-minute walkthrough** — [Loom video](https://www.loom.com/share/2f6596433b5f48ad9aeaf010339c6856). Key decisions and "what I'd build next / cut" are in this README.
 
 ---
 
@@ -151,16 +160,7 @@ Change any assumption in `src/lib/config/rules.ts` and the whole app updates.
 
 ---
 
-## Deliverables
-
-- **Live demo:** https://borrower-copilot-one.vercel.app/
-- **5-minute walkthrough (video):** https://www.loom.com/share/2f6596433b5f48ad9aeaf010339c6856
-- **[RULES.md](./RULES.md)** — the rule ledger (every threshold, band, fee,
-  formula and assumption, classified + sourced)
-- **[RUNTHROUGHS.md](./RUNTHROUGHS.md)** — Priya, Ravi, Anita: questions asked →
-  O1–O4 → Negotiation Card, with stated vs assumed inputs
-
-### What I'd build next
+## What I'd build next
 
 1. **Debt-consolidation modelling** — for Anita, compute the monthly saving from
    refinancing the 30%+ app loans into a lower-rate product, shown as an
@@ -173,7 +173,7 @@ Change any assumption in `src/lib/config/rules.ts` and the whole app updates.
 5. **Persist the session** in `localStorage` so a refresh doesn't lose progress.
 6. **A11y + i18n** — focus management between questions; Kannada/Hindi.
 
-### What I cut / left out
+## What I cut / left out
 
 No bureau integration, ML model, or lender API (out of scope; the point is a
 transparent rules engine). No account/server/persistence beyond the browser.

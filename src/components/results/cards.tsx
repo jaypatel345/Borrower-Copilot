@@ -42,10 +42,15 @@ export function AmountCard({ a }: { a: AmountResult }) {
   return (
     <Section eyebrow="O2 · How much" title="Two different numbers">
       {a.routedTo && a.routeReason && (
-        <p className="mb-3 rounded-xl bg-accent/10 p-3 text-[13px] text-ink/80">
-          <span className="font-semibold">Routed to a secured loan. </span>
-          {a.routeReason}
-        </p>
+        <div className="mb-3 rounded-xl bg-accent/10 p-3 text-[13px] text-ink/80">
+          <p>
+            <span className="font-semibold">Routed to a secured loan. </span>
+            {a.routeReason}
+          </p>
+          {a.routeAlternative && (
+            <p className="mt-1.5 text-[12px] text-ink/60">{a.routeAlternative}</p>
+          )}
+        </div>
       )}
 
       {(() => {

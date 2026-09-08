@@ -39,6 +39,7 @@ export type AmountResult = {
   recommended: "safe";
   routedTo?: LoanType; // set when the engine re-routes the product
   routeReason?: string;
+  routeAlternative?: string; // quantified "what the unsecured route would cost"
   explanation: Explanation;
 };
 

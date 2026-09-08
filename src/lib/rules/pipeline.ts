@@ -13,6 +13,7 @@ import type {
   TenureOption,
 } from "../types/results";
 import { RULES } from "../config/rules";
+import { PRODUCTS } from "../config/products";
 import { emi, totalInterest } from "../calculations/emi";
 import {
   inrOrNil,
@@ -67,14 +68,18 @@ export function runAssessment(profile: BorrowerProfile): ResultBundle {
   );
 
   // Illustrative principal for APR + EMI schedule = safe amount midpoint.
+  // Every safe-amount-derived EMI figure (O4 total, tenure table, stress) is
+  // computed at the TOP of the fair band — the same rate the safe amount was
+  // sized against — so the numbers reconcile and stay conservative.
   const safeMid = midpoint(safeDisplay.range);
+  const safeRatePct = fair.bandPct.high;
   const comfyTenure = comfortableTenure(d, profile.age);
   const apr = computeApr(profile, d, fair.bandPct, Math.max(safeMid, 1), comfyTenure);
 
   // Stress at the safe amount.
   const stress = computeStress(d, {
     principal: Math.max(safeMid, 0),
-    ratePct: fair.bandPct.high,
+    ratePct: safeRatePct,
     months: comfyTenure,
   });
 
@@ -92,8 +97,8 @@ export function runAssessment(profile: BorrowerProfile): ResultBundle {
 
   // ---- O4 EMI result --------------------------------------------------
   const ceiling = roundDownTo(affordability.safeEmiCeiling, RULES.rounding.emiFloorStep);
-  const proposedEmiAtSafe = emi(safeMid, midpoint(fair.bandPct), comfyTenure);
-  const tenureOptions = buildTenureOptions(d, profile, safeMid, midpoint(fair.bandPct));
+  const proposedEmiAtSafe = emi(safeMid, safeRatePct, comfyTenure);
+  const tenureOptions = buildTenureOptions(d, profile, safeMid, safeRatePct);
   const shortestAffordable =
     tenureOptions.find((t) => t.emi <= Math.max(ceiling, 1))?.months ?? comfyTenure;
 
@@ -120,12 +125,18 @@ export function runAssessment(profile: BorrowerProfile): ResultBundle {
   };
 
   // ---- O2 amount result -------------------------------------------
+  const routeAlternative = d.product.reRouted
+    ? `Unsecured, the same purpose sits at roughly ${pctRange(
+        PRODUCTS[profile.loanType].fairBandPct,
+      )} before risk premiums, on a smaller amount — the secured route is materially cheaper.`
+    : undefined;
   const amountResult = {
     lenderSanction: lender.range,
     safeAmount: safeDisplay.range,
     recommended: "safe" as const,
     routedTo: d.product.reRouted ? d.product.loanType : undefined,
     routeReason: d.product.routeReason,
+    routeAlternative,
     explanation: amountExplanation(
       d,
       affordability,

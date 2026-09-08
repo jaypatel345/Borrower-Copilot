@@ -83,11 +83,13 @@ export function progress(state: FlowState): Progress {
     state.answered.includes(q.id),
   ).length;
   const done = mustComplete(state.draft);
-  const fraction = done
+  const rawFraction = done
     ? applicableAdditional.length === 0
       ? 1
       : 0.6 + 0.4 * (additionalAnswered / applicableAdditional.length)
     : 0.6 * (mustAnswered / MUST_QUESTIONS.length);
+  // Show a small sliver on the first question so the bar never looks empty/broken.
+  const fraction = done ? rawFraction : Math.max(0.05, rawFraction);
 
   return {
     answered: state.answered.length,

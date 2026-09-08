@@ -74,17 +74,17 @@ uses a looser 55% ceiling over 72 months — what she *can* get, not what she
 | | |
 |---|---|
 | You already pay | ₹14,000 |
-| Total after this loan (at safe amount) | ₹36,176 |
-| Income left after that | ₹31,824 |
+| Total after this loan (at safe amount) | ₹36,593 |
+| Income left after that | ₹31,407 |
 
-Tenure trade-off (at the safe amount, ~₹8.5L):
+Tenure trade-off (at the safe amount, ~₹8.5L, priced at the top of the fair band):
 
 | Tenure | EMI | Total interest |
 |---|---|---|
-| 12 months | ₹75,323 | ₹53,874 |
-| 36 months | ₹28,030 | ₹1,59,066 |
-| 48 months | ₹22,176 | ₹2,14,432 |
-| 72 months | ₹16,397 | ₹3,30,619 |
+| 12 months | ₹75,720 | ₹58,645 |
+| 36 months | ₹28,436 | ₹1,73,681 |
+| 48 months | ₹22,593 | ₹2,34,464 |
+| 72 months | ₹16,840 | ₹3,62,444 |
 
 **Stress — income falls 15%:** total repayments become 39% of income, ₹14,907 left
 after essentials. **Holds** — the safe amount already absorbs this.
@@ -98,12 +98,11 @@ to lower the level).
 BORROWER COPILOT
 Decision: Borrow — but only what you need
 
-Safe amount:      ₹7.5L–₹9.5L
-Likely lender:    ₹21.5L–₹27.0L
-EMI ceiling:      ₹30,000
-Fair rate:        10.5%–12.5%
-All-in APR:       11.8%–13.8%
-Tenure:           3–4 years
+Safe amount:          ₹7.5L–₹9.5L
+Likely lender range:  ₹21.5L–₹27.0L
+EMI ceiling:          ₹30,000
+Fair rate:            10.5%–12.5% (all-in APR 11.8%–13.8%)
+Tenure:               3–4 years
 
 Why:
 - You can safely carry ₹7.5L–₹9.5L, which covers your ₹8,00,000 request.
@@ -117,7 +116,7 @@ Say this: "Based on my profile I'm looking for about ₹7.5L–₹9.5L at 10.5%�
 with an EMI no higher than ₹30,000, over 3–4 years. Please share the Key Facts
 Statement with the all-in APR including fees."
 
-Confidence: High · Not told: how much of your pay is variable
+Confidence: high (not told: how much of your pay is variable)
 ```
 
 ---
@@ -167,6 +166,8 @@ business purpose.
 **O2 — How much**  ·  *Routed to a secured loan* (business loan against property)
 > You own unencumbered collateral worth more than you want to borrow. A business
 > loan (against property) is secured, so it is priced far below an unsecured loan.
+> *Unsecured, the same purpose sits at roughly 15.0%–19.0% before risk premiums,
+> on a smaller amount — the secured route is materially cheaper.*
 
 | | Range |
 |---|---|
@@ -190,17 +191,17 @@ gap. This is the point: *lender capacity ≠ safe capacity.*
 | | |
 |---|---|
 | You already pay | ₹0 |
-| Total after this loan (at safe amount) | ₹7,250 |
-| Income left after that | ₹12,150 |
+| Total after this loan (at safe amount) | ₹7,719 |
+| Income left after that | ₹11,681 |
 
-Tenure trade-off (at the safe amount, ~₹4L):
+Tenure trade-off (at the safe amount, ~₹4L, priced at the top of the fair band):
 
 | Tenure | EMI | Total interest |
 |---|---|---|
-| 12 months | ₹35,703 | ₹28,441 |
-| 36 months | ₹13,454 | ₹84,326 |
-| 84 months | ₹7,250 | ₹2,08,969 |
-| 120 months | ₹5,943 | ₹3,13,157 |
+| 12 months | ₹36,103 | ₹33,240 |
+| 36 months | ₹13,866 | ₹99,181 |
+| 84 months | ₹7,719 | ₹2,48,371 |
+| 120 months | ₹6,453 | ₹3,74,408 |
 
 **Stress — rate rises 2pp** (floating secured product): EMI climbs to ₹8,174,
 repayments take 18% of income, ₹11,226 left. **Holds.**
@@ -213,12 +214,11 @@ Confidence: **Medium** — capped because the credit score is unknown.
 BORROWER COPILOT
 Decision: Borrow — but less than you planned
 
-Safe amount:      ₹3.0L–₹5.0L
-Likely lender:    ₹11.0L–₹15.5L
-EMI ceiling:      ₹11,500
-Fair rate:        10.8%–15.0%
-All-in APR:       11.5%–15.8%
-Tenure:           4–7 years
+Safe amount:          ₹3.0L–₹5.0L
+Likely lender range:  ₹11.0L–₹15.5L
+EMI ceiling:          ₹11,500
+Fair rate:            10.8%–15.0% (all-in APR 11.5%–15.8%)
+Tenure:               4–7 years
 
 Why:
 - You can safely carry ₹3.0L–₹5.0L — less than the ₹15,00,000 you asked for.
@@ -233,7 +233,7 @@ Say this: "Based on my profile I'm looking for about ₹3.0L–₹5.0L at 10.8%�
 with an EMI no higher than ₹11,500, over 4–7 years. Please share the Key Facts
 Statement with the all-in APR including fees."
 
-Confidence: Medium · Not told: credit score
+Confidence: medium (not told: credit score)
 ```
 
 Disclosures shown: co-applicant income counted at 80% because he named them;
@@ -329,11 +329,10 @@ A DON'T-BORROW card drops the tenure row and the rate-ask script:
 BORROWER COPILOT
 Decision: Don't borrow right now
 
-Safe amount:      Effectively nil
-Likely lender:    ₹1.0L–₹2.0L
-EMI ceiling:      Effectively nil
-Fair rate:        15.3%–20.0%
-All-in APR:       17.0%–21.8%
+Safe amount:          Effectively nil
+Likely lender range:  ₹1.0L–₹2.0L
+EMI ceiling:          Effectively nil
+Fair rate:            15.3%–20.0% (all-in APR 17.0%–21.8%)
 
 Why:
 - After ₹18,000 of essential costs and ₹6,500 of existing loan payments, only
@@ -349,7 +348,7 @@ the lender amount would not survive this.
 Where you stand: "I've been through my finances. I'm not taking a new loan yet —
 I'm clearing my higher-interest debt first, then I'll reassess."
 
-Confidence: Medium · Not told: credit score
+Confidence: medium (not told: credit score)
 ```
 
 ---

@@ -161,22 +161,36 @@ function sampleAnswerFor(id: string, p: BorrowerProfile): unknown {
   }
 }
 
+const MONEY_QUESTION_IDS = new Set([
+  "amountWanted",
+  "reportedIncome",
+  "existingEmiTotal",
+  "householdExpenses",
+  "documentedIncome",
+  "collateralValue",
+  "coApplicantIncome",
+]);
+
+const numField = (v: Record<string, unknown>, key: string): number =>
+  typeof v[key] === "number" ? (v[key] as number) : 0;
+
 function describeAnswer(id: string, v: unknown): string {
   if (v === "unknown") return "Not sure";
   if (v === "none") return "None";
   if (typeof v === "number") {
-    if (["amountWanted", "reportedIncome", "existingEmiTotal", "householdExpenses", "documentedIncome", "collateralValue", "coApplicantIncome"].includes(id)) {
+    if (MONEY_QUESTION_IDS.has(id)) {
       return v === 0 ? (id === "existingEmiTotal" ? "Nothing" : "None") : inr(v);
     }
     return String(v);
   }
+  if (Array.isArray(v)) return `${v.length} loan(s)`;
   if (v && typeof v === "object") {
-    if ("low" in v && "high" in v) return `${inr((v as any).low)} – ${inr((v as any).high)}`;
-    if ("count" in v) return `${(v as any).count} bounce(s)`;
-    if ("ratePct" in v) return `${(v as any).ratePct}% quoted`;
-    if ("extraMonthlyIncome" in v) return `${inr((v as any).extraMonthlyIncome)}/mo extra`;
-    if ("amount" in v) return `${inr((v as any).amount)} soon`;
-    if (Array.isArray(v)) return `${v.length} loan(s)`;
+    const o = v as Record<string, unknown>;
+    if ("low" in o && "high" in o) return `${inr(numField(o, "low"))} – ${inr(numField(o, "high"))}`;
+    if ("count" in o) return `${numField(o, "count")} bounce(s)`;
+    if ("ratePct" in o) return `${numField(o, "ratePct")}% quoted`;
+    if ("extraMonthlyIncome" in o) return `${inr(numField(o, "extraMonthlyIncome"))}/mo extra`;
+    if ("amount" in o) return `${inr(numField(o, "amount"))} soon`;
   }
   return String(v);
 }

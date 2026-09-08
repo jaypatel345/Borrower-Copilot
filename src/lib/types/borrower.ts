@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // BorrowerProfile — the single source of truth for a borrower's answers.
 //
-// Three states per optional field (CLAUDE.md §3.3, "Unknown is never zero"):
+// Three states per optional field (product brief, "Unknown is never zero"):
 //   - field absent from the object  -> not asked (adaptive flow skipped it)
 //   - { status: "unknown" }         -> asked, borrower does not know
 //   - { status: "known", value }    -> asked, answered

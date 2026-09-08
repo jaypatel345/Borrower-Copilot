@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // Confidence reflects MISSING information only. Fewer answers -> lower level ->
-// wider bands. It can never narrow a band (CLAUDE.md §3.4). RULES.md §12.
+// wider bands. It can never narrow a band (product brief). RULES.md §12.
 // ---------------------------------------------------------------------------
 
 import type { DerivedInputs } from "./deriveInputs";

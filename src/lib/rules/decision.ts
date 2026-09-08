@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // O1 — BORROW / BORROW LESS / DON'T BORROW. Ordered rule list: the first hard
 // stop wins; otherwise compare the safe amount to what was asked for. Every
-// verdict carries reasons tied to the binding numbers (CLAUDE.md §8). RULES.md §11.
+// verdict carries reasons tied to the binding numbers (product brief). RULES.md §11.
 // ---------------------------------------------------------------------------
 
 import type { BorrowerProfile } from "../types/borrower";

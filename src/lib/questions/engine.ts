@@ -56,7 +56,7 @@ export function isFinished(state: FlowState): boolean {
 
 /**
  * The borrower may stop as soon as the must-set is done — additional questions
- * only tighten ranges (CLAUDE.md §6). Returns whether "See my result" is allowed.
+ * only tighten ranges (product brief). Returns whether "See my result" is allowed.
  */
 export function canFinishEarly(state: FlowState): boolean {
   return mustComplete(state.draft);

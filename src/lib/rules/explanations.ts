@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // One-sentence "why" + factor list for each output. Built from the EXACT
-// numbers the rules used, so copy can't drift from the maths (CLAUDE.md §20).
-// Plain language: no bare "FOIR" / "DTI" — spell it out (CLAUDE.md §19).
+// numbers the rules used, so copy can't drift from the maths (product brief).
+// Plain language: no bare "FOIR" / "DTI" — spell it out (product brief).
 // ---------------------------------------------------------------------------
 
 import type { DerivedInputs } from "./deriveInputs";

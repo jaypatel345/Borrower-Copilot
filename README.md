@@ -153,8 +153,31 @@ Change any assumption in `src/lib/config/rules.ts` and the whole app updates.
 
 ## Deliverables
 
-- **[RULES.md](./RULES.md)** — the rule ledger
+- **Live demo:** https://borrower-copilot-one.vercel.app/
+- **5-minute walkthrough (video):** https://www.loom.com/share/2f6596433b5f48ad9aeaf010339c6856
+- **[RULES.md](./RULES.md)** — the rule ledger (every threshold, band, fee,
+  formula and assumption, classified + sourced)
 - **[RUNTHROUGHS.md](./RUNTHROUGHS.md)** — Priya, Ravi, Anita: questions asked →
   O1–O4 → Negotiation Card, with stated vs assumed inputs
-- **[WALKTHROUGH.md](./WALKTHROUGH.md)** — 5-minute walkthrough, key decisions,
-  what I'd build next and what I'd cut
+
+### What I'd build next
+
+1. **Debt-consolidation modelling** — for Anita, compute the monthly saving from
+   refinancing the 30%+ app loans into a lower-rate product, shown as an
+   alternative path (not just advised in prose).
+2. **A "what changed" diff on Edit** — when an answer is edited from the results
+   screen, show which of O1–O4 moved and by how much.
+3. **Save the card as an image** (currently screenshot + copy-text only).
+4. **Tiered LTV** — config uses a flat LTV per product; implement the RBI
+   ticket-size tiers for home and gold loans.
+5. **Persist the session** in `localStorage` so a refresh doesn't lose progress.
+6. **A11y + i18n** — focus management between questions; Kannada/Hindi.
+
+### What I cut / left out
+
+No bureau integration, ML model, or lender API (out of scope; the point is a
+transparent rules engine). No account/server/persistence beyond the browser.
+Loan products beyond the six the brief needs. Full amortisation schedules and
+prepayment modelling (the tenure table shows the trade-off). Charts — the tenure
+trade-off is a 4-row table. Art-directed visual design — the UI is clean and
+mobile-first, not polished for its own sake.

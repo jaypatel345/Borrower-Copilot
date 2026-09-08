@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------------
-// The question set. Two tiers (CLAUDE.md §6):
+// The question set. Two tiers (product brief):
 //   - must:       ~9 questions; the app produces all four outputs from these
 //   - additional: only asked when appliesWhen() is true AND the answer moves an
 //                 output (every additional question declares `affects`)
 //
 // Each question is pure: `toProfile(answer, draft)` returns a Partial to merge.
 // "I don't know" answers arrive as the string "unknown" and map to
-// { field: { status: "unknown" } } — never to 0 (CLAUDE.md §3.3).
+// { field: { status: "unknown" } } — never to 0 (product brief).
 // ---------------------------------------------------------------------------
 
 import type { BorrowerProfile, DraftProfile, LoanType, Purpose } from "../types/borrower";

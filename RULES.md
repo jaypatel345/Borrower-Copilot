@@ -119,7 +119,7 @@ Higher, less conservative than the borrower-safe set. Estimate only. The income 
 
 | What | Value | Classification | Why | Source |
 |---|---|---|---|---|
-| Safe FOIR — salaried | 40% | my judgement | Brief's own worked example uses 40%; leaves real buffer | CLAUDE.md §10 example |
+| Safe FOIR — salaried | 40% | my judgement | Brief's own worked example uses 40%; leaves real buffer | brief example |
 | Safe FOIR — self-employed | 35% | my judgement | Income volatility + no salary floor | — |
 | Safe FOIR — informal | 30% | my judgement | Highest volatility, zero cushion, dependants common | — |
 | Adjust: emergency savings < 1 month | −5 pp | my judgement | No shock absorber | — |
@@ -133,8 +133,8 @@ Higher, less conservative than the borrower-safe set. Estimate only. The income 
 
 | What | Value | Classification | Why | Source |
 |---|---|---|---|---|
-| Safe new EMI ≤ share of disposable | 60% of `(stableIncome − essentialExpenses − existingEMIs − amortisedUpcomingExpense)` | my judgement | Borrower keeps ≥40% of post-essentials income free | CLAUDE.md §11 |
-| `householdExpenses` unknown | treat as **unknown**, not 0; use fallback = 50% of net income **only as a calculation fallback, never shown as the borrower's actual expenses** + drop confidence one level. UI must explicitly disclose: "We assumed a household-cost figure — your result may change if you enter your real expenses." | my judgement | "Unknown is never zero" (§3.3); fallback must not flatter the borrower and must be visible | CLAUDE.md §3.3, user instruction 2026-09-08 |
+| Safe new EMI ≤ share of disposable | 60% of `(stableIncome − essentialExpenses − existingEMIs − amortisedUpcomingExpense)` | my judgement | Borrower keeps ≥40% of post-essentials income free | brief |
+| `householdExpenses` unknown | treat as **unknown**, not 0; use fallback = 50% of net income **only as a calculation fallback, never shown as the borrower's actual expenses** + drop confidence one level. UI must explicitly disclose: "We assumed a household-cost figure — your result may change if you enter your real expenses." | my judgement | "Unknown is never zero" (§3.3); fallback must not flatter the borrower and must be visible | brief, user instruction 2026-09-08 |
 | Minimum absolute buffer | household must retain > 10% of net income beyond essentials + all EMIs, else → DON'T BORROW | my judgement | Hard floor against over-lending | — |
 | Collateral vs borrower-side affordability | Collateral may raise **O2A (lender sanction)** and trigger secured routing only. It must **never** relax the §7 FOIR ceiling or the §8 residual ceiling. O2B (safe amount) and O4 (EMI ceiling) stay bound by income/residual affordability regardless of collateral. | my judgement | A pledged shop does not make monthly repayment affordable (Ravi) | user instruction 2026-09-08 |
 
@@ -183,11 +183,11 @@ Higher, less conservative than the borrower-safe set. Estimate only. The income 
 
 | What | Value | Classification | Why | Source |
 |---|---|---|---|---|
-| Income-drop scenario | −15% to stable income | my judgement | Brief suggests it; ~one bad quarter for variable earners | CLAUDE.md §16 |
-| Rate-rise scenario | +200 bps to rate | my judgement (rate cycles have moved ~250 bps) | Applied to floating products (home, LAP, floating business) | CLAUDE.md §16 |
-| Scenario selection | fixed-rate products → income drop; floating → rate rise; informal income → income drop always | my judgement | Match the risk the borrower actually carries | CLAUDE.md §16 |
+| Income-drop scenario | −15% to stable income | my judgement | Brief suggests it; ~one bad quarter for variable earners | brief |
+| Rate-rise scenario | +200 bps to rate | my judgement (rate cycles have moved ~250 bps) | Applied to floating products (home, LAP, floating business) | brief |
+| Scenario selection | fixed-rate products → income drop; floating → rate rise; informal income → income drop always | my judgement | Match the risk the borrower actually carries | brief |
 | Stress "fail" | post-stress total FOIR > 60% **or** post-stress residual < 0 | my judgement | Above any safe ceiling / negative cash flow | — |
-| Safe amount (O2B) sizing | must pass its own stress test — size to `min(safeEMI, stressedSafeEMI)` | my judgement | O2B should already survive the shock | CLAUDE.md §9 |
+| Safe amount (O2B) sizing | must pass its own stress test — size to `min(safeEMI, stressedSafeEMI)` | my judgement | O2B should already survive the shock | brief |
 
 ---
 
@@ -219,7 +219,7 @@ Every verdict carries 2–4 reason strings built from the binding numbers.
 | Hard cap | unknown credit score ⇒ max Medium (income is always known — it is a must-question) | Core input missing |
 | Amount range width | High ±8% · Medium ±15% · Low ±22% | Wider band with less info |
 | Rate band widening (high side) | High +0 · Medium +1.0 pp · Low +2.0 pp | Never narrower than §2 base band |
-| Direction rule | missing info may only **widen** a range, never narrow it | CLAUDE.md §3.4 |
+| Direction rule | missing info may only **widen** a range, never narrow it | brief |
 
 ---
 

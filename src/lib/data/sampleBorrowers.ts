@@ -5,7 +5,7 @@
 // A few fields the app would ASK but the brief does not state are marked
 // `// assumed:` below and are re-listed in RUNTHROUGHS.md so the reader can see
 // exactly what we put in. These are test INPUTS, not hardcoded outputs
-// (CLAUDE.md §24) — the rules engine produces every number.
+// (product brief) — the rules engine produces every number.
 // ---------------------------------------------------------------------------
 
 import type { BorrowerProfile } from "../types/borrower";

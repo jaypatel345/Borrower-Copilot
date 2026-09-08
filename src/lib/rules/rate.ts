@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // O3 fair-rate band = product's well-qualified band + additive risk premiums
 // (RULES.md §9b, §9c). Never a point. Unknowns widen the HIGH side only, so
-// missing information can never make the band look tighter (CLAUDE.md §3.4).
+// missing information can never make the band look tighter (product brief).
 // ---------------------------------------------------------------------------
 
 import type { BorrowerProfile } from "../types/borrower";

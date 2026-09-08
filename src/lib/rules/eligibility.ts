@@ -2,7 +2,7 @@
 // O2A — "what a lender will LIKELY sanction". An ESTIMATE, deliberately looser
 // than the safe amount. Collateral MAY raise it (secured products) but income
 // capacity is still the primary driver. This is not a prediction of any one
-// lender (CLAUDE.md §31).
+// lender (product brief).
 // ---------------------------------------------------------------------------
 
 import type { DerivedInputs } from "./deriveInputs";

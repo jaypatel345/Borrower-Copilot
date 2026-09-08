@@ -4,7 +4,7 @@
 // "essential expenses", credit tier, product routing, distress flags and the
 // list of unknowns that will widen confidence.
 //
-// Key discipline: unknown is never zero (CLAUDE.md §3.3). A missing optional
+// Key discipline: unknown is never zero (product brief). A missing optional
 // field either uses an explicit, documented fallback (and is recorded in
 // `unknownFields` + `notes`) or simply does not contribute.
 // ---------------------------------------------------------------------------

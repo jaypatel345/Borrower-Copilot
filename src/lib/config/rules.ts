@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // THE central rule configuration. Every threshold the engine uses lives here so
-// that "change 40% to 45%" is a one-line edit (CLAUDE.md §29). Each value maps
+// that "change 40% to 45%" is a one-line edit (product brief). Each value maps
 // to a row in RULES.md; section refs in comments.
 // ---------------------------------------------------------------------------
 

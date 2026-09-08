@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Safe EMI ceiling = the LOWER of two independent limits (CLAUDE.md §11):
+// Safe EMI ceiling = the LOWER of two independent limits (product brief):
 //   A. FOIR cap        — total debt service ≤ safeFOIR × stable income
 //   B. residual cap    — new EMI ≤ 60% of income left after essentials + EMIs
 // Collateral is deliberately NOT an input here — a pledged asset does not make

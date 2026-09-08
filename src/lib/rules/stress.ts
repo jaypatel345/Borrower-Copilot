@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// One stress scenario for O4 (CLAUDE.md §16):
+// One stress scenario for O4 (product brief):
 //   - floating-rate product & non-informal income -> rate +200bps
 //   - otherwise (fixed rate, or informal income)  -> income −15%
 // "Fail" = post-shock total FOIR > 60%  OR  post-shock residual < 0.

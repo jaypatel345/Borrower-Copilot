@@ -12,6 +12,8 @@ questions and get four things you can act on before you walk into a lender:
 
 Plus a one-screen **Negotiation Card** to hold up in a branch.
 
+**Live demo:** https://borrower-copilot-one.vercel.app/
+
 No login, no backend, no documents. Every number is computed in the browser and
 every number has a one-sentence "why".
 

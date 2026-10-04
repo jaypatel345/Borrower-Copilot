@@ -23,7 +23,7 @@ export function DecisionCard({ d }: { d: DecisionResult }) {
   const v = VERDICT[d.verdict];
   return (
     <Section eyebrow="O1 · The verdict" title={d.headline}>
-      <span className={`inline-block rounded-full px-3 py-1 text-sm font-bold ${v.tone}`}>
+      <span className={`inline-block rounded-full px-3 py-1 text-sm font-semibold ${v.tone}`}>
         {v.label}
       </span>
       <ul className="mt-3 flex flex-col gap-2">
@@ -42,7 +42,7 @@ export function AmountCard({ a }: { a: AmountResult }) {
   return (
     <Section eyebrow="O2 · How much" title="Two different numbers">
       {a.routedTo && a.routeReason && (
-        <div className="mb-3 rounded-xl bg-accent/10 p-3 text-[13px] text-ink/80">
+        <div className="mb-3 rounded-xl bg-accent-soft p-3 text-[13px] text-ink/80">
           <p>
             <span className="font-semibold">Routed to a secured loan. </span>
             {a.routeReason}
@@ -58,8 +58,8 @@ export function AmountCard({ a }: { a: AmountResult }) {
         return (
           <>
             <div
-              className={`rounded-xl border-2 p-3 ${
-                nilSafe ? "border-rose-300 bg-rose-50/60" : "border-emerald-300 bg-emerald-50/60"
+              className={`rounded-xl border p-4 ${
+                nilSafe ? "border-rose-200 bg-rose-50/60" : "border-emerald-200 bg-emerald-50/60"
               }`}
             >
               <p
@@ -69,7 +69,7 @@ export function AmountCard({ a }: { a: AmountResult }) {
               >
                 Safe for you — use this
               </p>
-              <p className="text-xl font-bold">{lakhRangeOrNil(a.safeAmount)}</p>
+              <p className="mt-0.5 text-2xl font-semibold tracking-tight">{lakhRangeOrNil(a.safeAmount)}</p>
               <p className="text-[11px] text-ink/55">
                 {nilSafe
                   ? "Your income can't safely take on any new loan payment right now."
@@ -77,7 +77,7 @@ export function AmountCard({ a }: { a: AmountResult }) {
               </p>
             </div>
 
-            <div className="mt-2 rounded-xl border border-black/15 p-3">
+            <div className="mt-2 rounded-xl border border-line p-4">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-ink/45">
                 A lender might sanction (estimate)
               </p>
@@ -123,7 +123,7 @@ export function RateCard({ r }: { r: RateResult }) {
       {r.drivers.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-1.5">
           {r.drivers.map((x, i) => (
-            <span key={i} className="rounded-full bg-black/[0.05] px-2 py-0.5 text-[11px] text-ink/70">
+            <span key={i} className="rounded-full bg-mist px-2 py-0.5 text-[11px] text-ink/70">
               {x}
             </span>
           ))}
@@ -175,7 +175,7 @@ export function EmiCard({ e }: { e: EmiResult }) {
               </thead>
               <tbody>
                 {e.tenureOptions.map((t) => (
-                  <tr key={t.months} className="border-t border-black/5">
+                  <tr key={t.months} className="border-t border-line">
                     <td className="py-1.5">{tenureLabel(t.months)}</td>
                     <td className="py-1.5 text-right font-medium">{inr(t.emi)}</td>
                     <td className="py-1.5 text-right text-ink/60">{inr(t.totalInterest)}</td>

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/inter";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Borrower Copilot",
+  title: "Borrower Copilot — know what you can safely borrow",
   description:
-    "A borrower-side self-assessment: should you borrow, how much, at what rate, and what EMI to agree to.",
+    "A free loan self-assessment for Indian borrowers: should you borrow, how much you can safely carry, a fair interest rate, and the EMI to hold the line at.",
 };
 
 export default function RootLayout({
@@ -14,11 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen">
-        <div className="mx-auto min-h-screen max-w-screen bg-paper px-5 py-6">
-          {children}
-        </div>
-      </body>
+      <body className="min-h-screen font-sans">{children}</body>
     </html>
   );
 }

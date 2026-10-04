@@ -62,7 +62,7 @@ export function NegotiationCard({ card }: { card: CardData }) {
     <div className="flex flex-col gap-2">
       <div
         id="negotiation-card"
-        className="overflow-hidden rounded-2xl border border-black/15 bg-white shadow-md"
+        className="overflow-hidden rounded-2xl border border-line bg-white"
       >
         <div
           className={`flex items-start justify-between gap-2 px-3.5 py-2.5 text-white ${VERDICT_TONE[card.verdict]}`}
@@ -92,7 +92,7 @@ export function NegotiationCard({ card }: { card: CardData }) {
           {!isDont && <Field label="Tenure" value={tenure} />}
         </div>
 
-        <div className="border-t border-black/10 px-3.5 py-2">
+        <div className="border-t border-line px-3.5 py-2">
           <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">Why</p>
           <ul className="mt-0.5 flex flex-col gap-0.5">
             {card.why.map((w, i) => (
@@ -103,12 +103,12 @@ export function NegotiationCard({ card }: { card: CardData }) {
           </ul>
         </div>
 
-        <div className="border-t border-black/10 px-3.5 py-2">
+        <div className="border-t border-line px-3.5 py-2">
           <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">Stress</p>
           <p className="mt-0.5 text-[11px] leading-tight text-ink/80">{card.stressLine}</p>
         </div>
 
-        <div className="border-t border-black/10 bg-black/[0.03] px-3.5 py-2">
+        <div className="border-t border-line bg-mist px-3.5 py-2">
           <p className="text-[10px] font-semibold uppercase tracking-wide text-ink/45">
             {lastHeading}
           </p>
@@ -121,7 +121,7 @@ export function NegotiationCard({ card }: { card: CardData }) {
 
       <button
         onClick={copy}
-        className="rounded-xl border border-black/15 bg-white px-4 py-2 text-sm font-medium active:scale-[0.98]"
+        className="rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-medium"
       >
         {copied ? "Copied ✓" : "Copy card text"}
       </button>

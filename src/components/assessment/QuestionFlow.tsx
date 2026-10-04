@@ -24,10 +24,10 @@ export function QuestionFlow({
   onFinish: () => void;
 }) {
   return (
-    <main className="flex min-h-[80vh] flex-col py-4">
+    <main className="flex flex-col">
       <div className="mb-6 flex items-center gap-3">
         {canBack ? (
-          <button onClick={onBack} className="text-sm text-ink/50 hover:text-ink" aria-label="Back">
+          <button onClick={onBack} className="shrink-0 text-sm text-ink/55 hover:text-ink" aria-label="Back">
             ← Back
           </button>
         ) : (
@@ -38,12 +38,12 @@ export function QuestionFlow({
         </div>
       </div>
 
-      <div className="flex-1">
-        <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-ink/40">
+      <div className="rounded-2xl border border-line bg-white p-6">
+        <p className="mb-2 text-xs font-semibold text-accent">
           {question.tier === "must" ? "Question" : "One more thing"}
         </p>
-        <h1 className="mb-2 text-xl font-semibold leading-snug">{question.prompt}</h1>
-        {question.help && <p className="mb-4 text-[13px] text-ink/55">{question.help}</p>}
+        <h1 className="mb-2 text-2xl font-semibold leading-snug tracking-tight">{question.prompt}</h1>
+        {question.help && <p className="mb-4 text-sm leading-relaxed text-ink/55">{question.help}</p>}
 
         <div className="mt-4">
           {/* key forces fresh input state per question */}
@@ -52,8 +52,8 @@ export function QuestionFlow({
       </div>
 
       {canFinishEarly && (
-        <div className="mt-8 border-t border-black/10 pt-4">
-          <p className="mb-2 text-xs text-ink/50">
+        <div className="mt-6 rounded-2xl border border-line bg-white p-5">
+          <p className="mb-3 text-sm text-ink/55">
             You&apos;ve answered enough for a result. More answers only tighten the ranges.
           </p>
           <Button variant="outline" onClick={onFinish}>

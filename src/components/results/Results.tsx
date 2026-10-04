@@ -24,24 +24,22 @@ export function Results({
   const [tab, setTab] = useState<"result" | "card" | "answers">("result");
 
   return (
-    <main className="flex flex-col gap-4 py-4">
-      <header className="flex flex-col gap-2">
+    <main className="flex flex-col gap-4">
+      <header className="flex flex-wrap items-end justify-between gap-3 pb-1">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-accent">
-            Your assessment
-          </p>
-          {sampleLabel && <p className="text-xs text-ink/50">Sample: {sampleLabel}</p>}
+          <h1 className="text-2xl font-semibold tracking-tight">Your assessment</h1>
+          {sampleLabel && <p className="mt-0.5 text-sm text-ink/50">Sample: {sampleLabel}</p>}
         </div>
         <ConfidenceBadge level={bundle.confidence.level} missing={bundle.confidence.missing} />
       </header>
 
-      <div className="flex gap-1 rounded-xl bg-black/[0.04] p-1 text-sm">
+      <div className="flex gap-1 rounded-xl border border-line bg-white p-1 text-sm">
         {(["result", "card", "answers"] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
             className={`flex-1 rounded-lg px-3 py-1.5 font-medium capitalize ${
-              tab === t ? "bg-white shadow-sm" : "text-ink/50"
+              tab === t ? "bg-accent-soft text-accent" : "text-ink/55"
             }`}
           >
             {t === "card" ? "Negotiation card" : t}
@@ -73,7 +71,7 @@ export function Results({
 
       {tab === "answers" && (
         <Section title="Your answers" eyebrow="Edit anything">
-          <ul className="flex flex-col divide-y divide-black/5">
+          <ul className="flex flex-col divide-y divide-line">
             {answeredSteps.map((s) => (
               <li key={s.id} className="flex items-center justify-between gap-3 py-2">
                 <div className="min-w-0">

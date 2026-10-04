@@ -20,6 +20,7 @@ import { inr } from "@/lib/calculations/money";
 import { Landing } from "./Landing";
 import { QuestionFlow } from "./QuestionFlow";
 import { Results } from "@/components/results/Results";
+import { AppShell } from "@/components/shared/ui";
 
 type Step = { id: string; value: unknown };
 type Phase = "landing" | "assess" | "result";
@@ -43,6 +44,11 @@ export function AssessmentApp() {
       setPhase("result");
     }
   }, [phase, current, flow.draft]);
+
+  // The landing page is long — start each new screen at the top.
+  useEffect(() => {
+    if (window.scrollY > 0) window.scrollTo({ top: 0 });
+  }, [phase]);
 
   const submit = (value: unknown) => {
     if (!current) return;
@@ -84,19 +90,23 @@ export function AssessmentApp() {
     return <Landing onStart={start} onSample={loadSample} />;
   }
 
+  const goHome = () => setPhase("landing");
+
   if (phase === "assess") {
     if (current) {
       return (
-        <QuestionFlow
-          question={current}
-          progressFraction={prog.fraction}
-          stepIndex={steps.length}
-          canBack={steps.length > 0}
-          canFinishEarly={canFinishEarly(flow) && prog.additionalApplicable > prog.additionalAnswered}
-          onSubmit={submit}
-          onBack={back}
-          onFinish={() => setPhase("result")}
-        />
+        <AppShell onHome={goHome}>
+          <QuestionFlow
+            question={current}
+            progressFraction={prog.fraction}
+            stepIndex={steps.length}
+            canBack={steps.length > 0}
+            canFinishEarly={canFinishEarly(flow) && prog.additionalApplicable > prog.additionalAnswered}
+            onSubmit={submit}
+            onBack={back}
+            onFinish={() => setPhase("result")}
+          />
+        </AppShell>
       );
     }
     return null; // transient — effect above flips to "result"
@@ -104,17 +114,19 @@ export function AssessmentApp() {
 
   const bundle = runAssessment(toProfile(flow));
   return (
-    <Results
-      bundle={bundle}
-      sampleLabel={sampleLabel}
-      answeredSteps={steps.map((s) => ({
-        id: s.id,
-        label: QUESTIONS.find((q) => q.id === s.id)?.prompt ?? s.id,
-        display: describeAnswer(s.id, s.value),
-      }))}
-      onEdit={editFrom}
-      onRestart={() => setPhase("landing")}
-    />
+    <AppShell onHome={goHome}>
+      <Results
+        bundle={bundle}
+        sampleLabel={sampleLabel}
+        answeredSteps={steps.map((s) => ({
+          id: s.id,
+          label: QUESTIONS.find((q) => q.id === s.id)?.prompt ?? s.id,
+          display: describeAnswer(s.id, s.value),
+        }))}
+        onEdit={editFrom}
+        onRestart={goHome}
+      />
+    </AppShell>
   );
 }
 

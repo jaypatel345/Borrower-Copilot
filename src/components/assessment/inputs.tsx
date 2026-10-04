@@ -8,7 +8,7 @@ import { Button } from "@/components/shared/ui";
 type Props = { spec: InputSpec; initial?: unknown; onSubmit: (value: unknown) => void };
 
 const fieldCls =
-  "w-full rounded-xl border border-black/15 bg-white px-3 py-2.5 text-base outline-none focus:border-accent";
+  "w-full rounded-lg border border-line bg-white px-3 py-2.5 text-base outline-none focus:border-accent focus:ring-2 focus:ring-accent/15";
 
 function NumberField({
   value,
@@ -83,7 +83,7 @@ function ChoiceInput({
         <button
           key={o.value}
           onClick={() => onSubmit(o.value)}
-          className="rounded-xl border border-black/15 bg-white px-4 py-3 text-left text-sm font-medium transition hover:border-accent active:scale-[0.99]"
+          className="rounded-lg border border-line bg-white px-4 py-3 text-left text-sm font-medium transition-colors hover:border-accent"
         >
           {o.label}
         </button>
@@ -401,7 +401,7 @@ function ExistingLoansInput({ onSubmit }: { onSubmit: (v: unknown) => void }) {
   return (
     <div className="flex flex-col gap-4">
       {rows.map((row, i) => (
-        <div key={i} className="rounded-xl border border-black/10 p-3">
+        <div key={i} className="rounded-lg border border-line p-3">
           <select
             className={fieldCls}
             value={row.kind}

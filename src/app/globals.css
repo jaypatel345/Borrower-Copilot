@@ -6,4 +6,14 @@ html,
 body {
   background: theme("colors.paper");
   color: theme("colors.ink");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: theme("colors.accent.soft");
 }
